@@ -17,6 +17,7 @@ source "$SCRIPT_DIR/modules/mod_netmap.sh"
 source "$SCRIPT_DIR/modules/mod_fingerprint.sh"
 source "$SCRIPT_DIR/modules/mod_sandbox.sh"
 source "$SCRIPT_DIR/modules/mod_vulncheck.sh"
+source "$SCRIPT_DIR/modules/mod_ai_advisor.sh"
 
 BLUE='\033[0;34m'
 CYAN='\033[0;36m'
@@ -59,8 +60,9 @@ main_menu() {
 	echo " [8] Vulnerability Checker"
         echo " [9] Interactive Education Sandbox"
 	echo " [Q] Exit Toolkit"
-        echo "------------------------------------------------------------------"
-	read -r -n 1 -p "Select an option [1-9 / Q]: " choice
+        echo -e " ${CYAN}[10] Gemini AI Security Advisor (NEW)${NC}"
+	echo "------------------------------------------------------------------"
+	read -rp "Select an option [1-10 / Q]: " choice
         case "$choice" in
             1)
                 run_file_organizer
@@ -90,11 +92,14 @@ main_menu() {
 		;;
 	    8)
 		bash modules/mod_vulncheck.sh
-		read -rp "ERROR PAUSE: Read the error above, then press Enter..."
 		;;
 	    9)
 		run_sandbox
 		;;
+	    10)
+		bash modules/mod_ai_advisor.sh
+                read -rp "ERROR PAUSE: Read error, then press Enter..."
+                ;;
             *)
                 echo -e "\nInvalid selection. Press [Enter] to try again..."
                 read -r
