@@ -1,0 +1,29 @@
+# Format: service	version_pattern	CVE_ID	severity	score	description
+# --- dnsmasq (routers, DNS servers) ---
+dnsmasq	2\.7[0-9].*	CVE-2020-25681	High	8.1	Heap-based buffer overflow in dnsmasq DNSSEC
+dnsmasq	2\.7[0-9].*	CVE-2020-25682	High	8.1	Buffer overflow in dnsmasq DNSSEC
+dnsmasq	2\.7[0-9].*	CVE-2020-25683	High	7.5	Use-after-free in dnsmasq DNSSEC
+dnsmasq	2\.7[0-9].*	CVE-2020-25687	Medium	5.9	Stack overflow in dnsmasq
+dnsmasq	2\.78	CVE-2021-3448	Medium	4.0	DNS cache poisoning in dnsmasq
+dnsmasq	2\.7[0-9].*	CVE-2020-25684	Medium	5.9	Use-after-free in dnsmasq
+# --- Boa HTTPd (old routers) ---
+boa	0\.94.*	CVE-2021-33558	High	7.5	Information disclosure in Boa HTTPd
+boa	0\.94.*	CVE-2022-45956	Medium	5.3	Authorization bypass in Boa HTTPd
+boa	0\.94.*	CVE-2018-21028	High	7.5	Memory leak in Boa (missing free)
+# --- OpenSSH (Linux servers) ---
+openssh	[0-6]\.*	CVE-2016-6210	Medium	5.3	User enumeration in OpenSSH
+openssh	[0-7]\.[0-5].*	CVE-2018-15473	Medium	5.3	Username enumeration in OpenSSH
+# --- Apache HTTP Server ---
+apache	2\.[0-3].*	CVE-2017-7679	Critical	9.8	Buffer overflow in Apache mod_mime
+apache	2\.[0-3].*	CVE-2017-7659	High	7.5	Denial of service in Apache mod_http2
+apache	2\.0.*	CVE-2011-3192	High	7.8	Denial of service in Apache (Byte Range)
+# --- nginx ---
+nginx	1\.[0-9].*	CVE-2019-20372	Medium	5.3	HTTP request smuggling in nginx
+nginx	1\.[0-9].*	CVE-2021-23017	High	7.7	DNS resolver off-by-one in nginx
+# --- vsftpd (FTP server) ---
+vsftpd	2\.3\.4	CVE-2011-2523	Critical	9.8	Backdoor command execution in vsftpd
+# --- Samba / SMB (file sharing) ---
+samba	3\.[0-5].*	CVE-2017-7494	Critical	9.8	Remote code execution in Samba (SambaCry)
+smb	.*	CVE-2017-0144	Critical	9.3	EternalBlue SMB vulnerability
+# --- RDP (Windows remote desktop) ---
+rdp	.*	CVE-2019-0708	Critical	9.8	BlueKeep RDP vulnerability

@@ -1,0 +1,11 @@
+cat << 'EOF' > .gitignore
+# Ignore log files
+*.log
+logs/
+modules/logs/
+
+# Ignore editor backup files
+*.save
+*.swp
+*~
+EOF
