@@ -11,10 +11,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/modules/mod_organize.sh"
 source "$SCRIPT_DIR/modules/mod_password.sh"
 source "$SCRIPT_DIR/modules/mod_health.sh"
-source "$SCRIPT_DIR/modules/mod_diagnostics.sh"
+source "$SCRIPT_DIR/modules/mod_integrity.sh"
 source "$SCRIPT_DIR/modules/mod_portscan.sh"
 source "$SCRIPT_DIR/modules/mod_netmap.sh"
 source "$SCRIPT_DIR/modules/mod_fingerprint.sh"
+source "$SCRIPT_DIR/modules/mod_sandbox.sh"
 source "$SCRIPT_DIR/modules/mod_vulncheck.sh"
 
 BLUE='\033[0;34m'
@@ -51,15 +52,15 @@ main_menu() {
         echo " [2] Password Strength & Policy Checker"
         echo " [3] System Health & Metrics Monitor"
 	# this is useful for checking toolkit
-        echo " [4] Run Full System Diagnostics(Only useful for checking toolkit integrity)"
+	echo " [4] Validate Toolkit & Environment Integrity"
 	echo " [5] Network Port Scanner"
 	echo " [6] Network Device Mapper"
 	echo " [7] Service Fingerprinter"
 	echo " [8] Vulnerability Checker"
-        echo " [Q] Exit Toolkit"
+        echo " [9] Interactive Education Sandbox"
+	echo " [Q] Exit Toolkit"
         echo "------------------------------------------------------------------"
-        read -rp "Select an option [1-8 / Q]: " choice
-
+	read -r -n 1 -p "Select an option [1-9 / Q]: " choice
         case "$choice" in
             1)
                 run_file_organizer
@@ -88,7 +89,11 @@ main_menu() {
 		run_fingerprinter
 		;;
 	    8)
-		run_vuln_checker
+		bash modules/mod_vulncheck.sh
+		read -rp "ERROR PAUSE: Read the error above, then press Enter..."
+		;;
+	    9)
+		run_sandbox
 		;;
             *)
                 echo -e "\nInvalid selection. Press [Enter] to try again..."

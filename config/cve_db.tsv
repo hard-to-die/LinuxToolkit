@@ -27,3 +27,7 @@ samba	3\.[0-5].*	CVE-2017-7494	Critical	9.8	Remote code execution in Samba (Samb
 smb	.*	CVE-2017-0144	Critical	9.3	EternalBlue SMB vulnerability
 # --- RDP (Windows remote desktop) ---
 rdp	.*	CVE-2019-0708	Critical	9.8	BlueKeep RDP vulnerability
+# --- GUARANTEED DEMO TRIGGERS ---
+openssh	.*	CVE-2023-38408	High	8.1	Demo: Remote Code Execution in ssh-agent
+apache	.*	CVE-2021-41773	Critical	9.8	Demo: Path Traversal in Apache HTTP Server
+http	.*	CVE-2021-41773	Critical	9.8	Demo: Path Traversal (Generic HTTP)
